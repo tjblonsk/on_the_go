@@ -1,4 +1,7 @@
 OnTheGo::Application.routes.draw do
+  root "takeouts#index"
+  resources :takeout
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
