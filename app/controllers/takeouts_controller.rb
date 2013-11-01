@@ -1,8 +1,5 @@
 class TakeoutsController < ApplicationController
 
-	require 'rest-client'
-	require 'json'
-
 	def show
 		@takeout = Takeout.find(params[:id])
 	end
@@ -16,10 +13,15 @@ class TakeoutsController < ApplicationController
         	test_match = test_phrase.match(" ") ? "yes" : "no"
         end
         @takeout.phrase = test_phrase
-        bitly_url = "https://api-ssl.bitly.com/v3/search?access_token=#{@access_token}&query=#{@takeout.phrase}&limit=#{@takeout.limit}"
+        bitly_url = "https://api-ssl.bitly.com/v3/search?access_token=#{@takeout.token}&query=#{@takeout.phrase}&limit=#{@takeout.limit}"
         link_results = JSON.load(RestClient.get(bitly_url))
-        results = bitly_url["data"]["results"].map do |set|
+        results = link_results["data"]["results"].map do |set|
         	{title: set["title"], site: set["site"], url: set["url"]}
+        end
+        if @takeout.save
+        	redirect_to @takeout
+        else
+        	render :new
         end
 	end
 

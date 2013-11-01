@@ -1,6 +1,7 @@
 OnTheGo::Application.routes.draw do
-  root "takeouts#new"
+  root "welcome#index"
   resources :takeouts
+  get '/oauth', to: 'welcome#oauth'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
