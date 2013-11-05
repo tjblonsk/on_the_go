@@ -1,5 +1,5 @@
 OnTheGo::Application.routes.draw do
-  root "welcome#index"
+  root "takeouts#new"
   resources :takeouts
   get '/oauth', to: 'welcome#oauth'
 
