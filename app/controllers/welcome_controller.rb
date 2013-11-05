@@ -30,5 +30,7 @@ class WelcomeController < ActionController::Base
         end
       rescue
       end
+
+      raise
   end
 end
