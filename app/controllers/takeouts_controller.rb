@@ -2,6 +2,7 @@ class TakeoutsController < ApplicationController
 
 	def show
 		@takeout = Takeout.find(params[:id])
+		
 	end
 
 	def create
