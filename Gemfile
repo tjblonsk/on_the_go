@@ -8,7 +8,6 @@ gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
-gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -31,9 +30,14 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-gem 'rails_12factor', group: :production
+group :production do
+	gem 'rails_12factor'
+	gem 'pg'
+	gem 'unicorn'
 
-group :development do
+group :development, :test do
+	gem 'pry'
+	gem 'sqlite3'
 	gem 'better_errors'
 	gem 'binding_of_caller'
 end
