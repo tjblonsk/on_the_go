@@ -7,6 +7,7 @@ class TakeoutsController < ApplicationController
 
 	def create
 		@takeout = Takeout.new(takeout_params)
+
 		test_phrase = @takeout.phrase
 		test_match = test_phrase.match(" ") ? "yes" : "no"
         while test_match == "yes" do
@@ -14,11 +15,17 @@ class TakeoutsController < ApplicationController
         	test_match = test_phrase.match(" ") ? "yes" : "no"
         end
         @takeout.phrase = test_phrase
+
         bitly_url = "https://api-ssl.bitly.com/v3/search?access_token=#{@takeout.token}&query=#{@takeout.phrase}&limit=#{@takeout.limit}"
         link_results = JSON.load(RestClient.get(bitly_url))
         results = link_results["data"]["results"].map do |set|
         	{title: set["title"], site: set["site"], url: set["url"]}
         end
+
+        results.each do |result|
+        	History.create title: result[:title], site: result[:site], url: result[:url]
+        end
+
         if @takeout.save
         	redirect_to @takeout
         else
@@ -28,11 +35,16 @@ class TakeoutsController < ApplicationController
 
 	def new
 		@takeout = Takeout.new
+		@history = History.new
 	end
 
 	private
 
 	def takeout_params
 		params.require('takeout').permit(:phrase, :limit, :token)
+	end
+
+	def history_params
+		params.require('history').permit(:title, :site, :url)
 	end
 end
