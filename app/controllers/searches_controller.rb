@@ -20,9 +20,11 @@ class SearchesController < ApplicationController
                 results = link_results["data"]["results"].map do |set|
                         {title: set["title"], site: set["site"], url: set["url"]}
                 end
+
+                id = @search_id
                 
                 results.each do |result|
-                        History.create title: result[:title], site: result[:site], url: result[:url]
+                        History.create title: result[:title], site: result[:site], url: result[:url], search_id: id
                 end
 
                 if @search.save
