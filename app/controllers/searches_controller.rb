@@ -21,10 +21,10 @@ class SearchesController < ApplicationController
                         {title: set["title"], site: set["site"], url: set["url"]}
                 end
 
-                id = @search_id
+                @search.save
                 
                 results.each do |result|
-                        History.create title: result[:title], site: result[:site], url: result[:url], search_id: id
+                        History.create title: result[:title], site: result[:site], url: result[:url], search_id: @search.id
                 end
 
                 if @search.save
