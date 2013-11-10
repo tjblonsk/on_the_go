@@ -1,6 +1,6 @@
 OnTheGo::Application.routes.draw do
-  root "takeouts#new"
-  resources :takeouts
+  root "searches#new"
+  resources :searches
   get '/oauth', to: 'welcome#oauth'
 
   # The priority is based upon order of creation: first created -> highest priority.

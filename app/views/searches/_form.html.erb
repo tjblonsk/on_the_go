@@ -1,0 +1,9 @@
+<%= form_for @search do |f| %>
+		<%= f.label :phrase %>
+		<%= f.text_field :phrase %><br />
+		<%= f.label :limit %>
+		<%= f.text_field :limit %><br />
+		<%= f.label :token %>
+		<%= f.text_field :token %><br />
+		<br><%= f.submit %></br>
+<% end %>
