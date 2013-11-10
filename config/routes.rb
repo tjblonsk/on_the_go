@@ -1,6 +1,7 @@
 OnTheGo::Application.routes.draw do
-  root "searches#new"
+  root "histories#index"
   resources :searches
+  resources :histories
   get '/oauth', to: 'welcome#oauth'
 
   # The priority is based upon order of creation: first created -> highest priority.

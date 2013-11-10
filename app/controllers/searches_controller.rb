@@ -1,13 +1,8 @@
 class SearchesController < ApplicationController
 
-	def show
-                #@history = History.find_by_sql("select histories.* from histories where histories.search_id = #{@search.id}")
-                @histories = History.where("search_id = #{params[:id]}")
-        end
 	def create
-                raise
-		#@search = Search.new(search_params)
-                @search = Search.new(phrase: search_params["phrase"], limit: search_params["limit"])
+                @search = Search.new(search_params)
+                #@search = Search.new(phrase: search_params["phrase"], limit: search_params["limit"])
 
 		test_phrase = @search.phrase
 		test_match = test_phrase.match(" ") ? "yes" : "no"
@@ -30,7 +25,7 @@ class SearchesController < ApplicationController
                 end
 
                 if @search.save
-                        redirect_to @search
+                        redirect_to "/histories/#{@search.id}" 
                 else
                         render :new
                 end
