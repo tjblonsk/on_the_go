@@ -1,11 +1,13 @@
 class SearchesController < ApplicationController
 
 	def show
-                @history = History.all
-	end
-
+                #@history = History.find_by_sql("select histories.* from histories where histories.search_id = #{@search.id}")
+                @histories = History.where("search_id = #{params[:id]}")
+        end
 	def create
-		@search = Search.new(search_params)
+                raise
+		#@search = Search.new(search_params)
+                @search = Search.new(phrase: search_params["phrase"], limit: search_params["limit"])
 
 		test_phrase = @search.phrase
 		test_match = test_phrase.match(" ") ? "yes" : "no"
