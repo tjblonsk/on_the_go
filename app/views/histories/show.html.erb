@@ -3,6 +3,7 @@
 <p><%= history.site %></p>
 <p><%= history.url %></p>
 <p><% qr = RQRCode::QRCode.new( history.url, :size => 17, :level => :h ) %></p>
+
 <style type="text/css">
 table {
 	border-width: 0;
