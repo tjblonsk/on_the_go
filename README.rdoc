@@ -1,1 +1,5 @@
+== On The Go
+
 {<img src="https://travis-ci.org/delpic/on_the_go.png" />}[https://travis-ci.org/delpic/on_the_go]
+
+This RoR app was created for my BEWD course at GA.
