@@ -1,0 +1,7 @@
+deploy:
+  provider: heroku
+  api_key:
+    secure: CoxZiiJ2hOWsJTHAkeiaYK29GdzuSiPS/ZYJb/S/PEZO993IR5eHK0B7E3ZoWttYzVjiYcWthJsmv6duatgJuFv4Dy60hXJby2OpxBmuw33AgumYtm7mOODuzXQhgc3idIwyWKBsQSZQCfNB3vENEVFjdOVCiNMI0SW2TIYKyDw=
+  app: on-the-go
+  on:
+    repo: delpic/on_the_go
