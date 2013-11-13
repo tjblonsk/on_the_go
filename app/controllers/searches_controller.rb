@@ -3,6 +3,7 @@ class SearchesController < ApplicationController
         before_filter :authenticate_user!
 
 	def create
+                @access_token = params[:shared_param__]
                 @search = Search.new(search_params)
                 #@search = Search.new(phrase: search_params["phrase"], limit: search_params["limit"])
 
@@ -14,7 +15,7 @@ class SearchesController < ApplicationController
                 end
                 @search.phrase = test_phrase
 
-                bitly_url = "https://api-ssl.bitly.com/v3/search?access_token=#{@search.token}&query=#{@search.phrase}&limit=#{@search.limit}"
+                bitly_url = "https://api-ssl.bitly.com/v3/search?access_token=#{@access_token}&query=#{@search.phrase}&limit=#{@search.limit}"
                 link_results = JSON.load(RestClient.get(bitly_url))
                 results = link_results["data"]["results"].map do |set|
                         {title: set["title"], site: set["site"], url: set["url"]}
@@ -40,6 +41,6 @@ class SearchesController < ApplicationController
 	private
 
 	def search_params
-		params.require('search').permit(:phrase, :limit, :token)
+		params.require('search').permit(:phrase, :limit)
 	end
 end
