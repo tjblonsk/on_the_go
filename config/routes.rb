@@ -1,5 +1,5 @@
 OnTheGo::Application.routes.draw do
-  root "welcome#index"
+  root "histories#index"
   resources :searches
   resources :histories
   get '/searches/new', to: 'searches#new'
