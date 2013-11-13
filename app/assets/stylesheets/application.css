@@ -12,3 +12,8 @@
  *= require_tree .
  *= require bootstrap
  */
+
+
+ input {
+ 	padding: 5px;
+ }
