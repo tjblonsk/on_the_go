@@ -17,7 +17,6 @@ class WelcomeController < ActionController::Base
       request = Net::HTTP::Post.new(uri.request_uri)
       request.set_form_data({'client_id' => client_id, 'client_secret' => client_secret, 'redirect_uri' => redirect_uri, 'code' => code})
       response = https.request(request)
-      binding.pry
       puts "#{response.code} -- #{response.body}" #sanity check
       @data = {}
       response.body.split('&').each do |pair|
