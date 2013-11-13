@@ -9,7 +9,7 @@ class WelcomeController < ActionController::Base
     code = params[:code]
     client_id = '6f4c7cb2694215156619c765d892ca62f56ea25b'
     client_secret = 'f1ab6494cc1af4a65a8d28ac5d58ca5ef633e11e'
-    redirect_uri = 'http://bit.ly/17w1jOl'
+    redirect_uri = 'http://on-the-go.herokuapp.com/oauth'
     uri = URI.parse('https://api-ssl.bitly.com/oauth/access_token')
     begin
       https = Net::HTTP.new(uri.host, uri.port)
