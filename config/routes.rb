@@ -1,4 +1,5 @@
 OnTheGo::Application.routes.draw do
+  devise_for :users
   root "histories#index"
   resources :searches
   resources :histories

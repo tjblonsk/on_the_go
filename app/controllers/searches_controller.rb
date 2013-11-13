@@ -1,4 +1,6 @@
 class SearchesController < ApplicationController
+                
+        before_filter :authenticate_user!
 
 	def create
                 @search = Search.new(search_params)

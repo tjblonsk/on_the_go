@@ -24,6 +24,7 @@ class WelcomeController < ActionController::Base
         @data[a[0].to_sym] = a[1]
       end
     rescue
+      @access_token = @data[:access_token]
     end
   end
 end
