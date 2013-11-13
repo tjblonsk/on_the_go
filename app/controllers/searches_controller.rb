@@ -1,9 +1,6 @@
 class SearchesController < ApplicationController
-                
-        before_filter :authenticate_user!
 
 	def create
-                @access_token = params[:shared_param__]
                 @search = Search.new(search_params)
                 #@search = Search.new(phrase: search_params["phrase"], limit: search_params["limit"])
 

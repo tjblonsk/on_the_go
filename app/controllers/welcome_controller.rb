@@ -26,6 +26,5 @@ class WelcomeController < ActionController::Base
       end
     rescue
     end
-    params[:shared_param__] ||= @data[:access_token]
   end
 end

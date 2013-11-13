@@ -1,8 +1,7 @@
 OnTheGo::Application.routes.draw do
   devise_for :users
   root "histories#index"
-  resources :searches
-  resources :histories
+  resources :searches, :histories
   get '/searches/new', to: 'searches#new'
   get '/oauth', to: 'welcome#oauth'
   get '/login', to: 'welcome#index'
