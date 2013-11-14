@@ -23,6 +23,7 @@ class WelcomeController < ActionController::Base
         a = pair.split('=')
         @data[a[0].to_sym] = a[1]
       end
+      session[:token] = @data[:access_token]
     rescue
     end
   end
