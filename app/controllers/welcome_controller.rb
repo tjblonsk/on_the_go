@@ -24,6 +24,7 @@ class WelcomeController < ActionController::Base
         @data[a[0].to_sym] = a[1]
       end
       session[:token] = @data[:access_token]
+      redirect_to new_search_path
     rescue
     end
   end
