@@ -1,4 +1,4 @@
-class WelcomeController < ActionController::Base
+class WelcomeController < ApplicationController
 
   before_filter :authenticate_user!
 
