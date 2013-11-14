@@ -1,3 +1,5 @@
 login: <%= @data[:login] %>
 <br />
 access_token: <%= @data[:access_token] %>
+
+<div><br><%= link_to "Signout", destroy_user_session_path, { :method => :delete} %></br></div>

@@ -1,4 +1,7 @@
 class WelcomeController < ActionController::Base
+
+  before_filter :authenticate_user!
+
   require 'net/http'
   require 'uri'
 
