@@ -8,6 +8,7 @@ class WelcomeController < ApplicationController
   def index
   end
 
+  # Let's authenticate with Bitly.
   def oauth
     code = params[:code]
     client_id = '6f4c7cb2694215156619c765d892ca62f56ea25b'
