@@ -1,7 +1,9 @@
+<h1>Results</h1>
+
 <% @histories.each do |history| %>
-<h1><%= history.title %></h1>
-<p><%= history.site %></p>
-<p><%= history.url %></p>
+<h2><%= history.title %></h2>
+<p><%= link_to history.site %></p>
+<p><%= link_to history.url %></p>
 <p><% qr = RQRCode::QRCode.new( history.url, :size => 17, :level => :h ) %></p>
 
 <style type="text/css">

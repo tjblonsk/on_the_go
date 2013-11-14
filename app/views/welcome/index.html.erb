@@ -1,5 +1,9 @@
-<h1>Welcome to On The Go</h1>	
+<h1>Welcome to On The Go</h1>
 
-<a href="https://bitly.com/oauth/authorize?client_id=6f4c7cb2694215156619c765d892ca62f56ea25b&redirect_uri=http://on-the-go.herokuapp.com/oauth">click here to authorize using your bitly account</a>
+<h2>This app uses the Bitly API to search for a phrase that you enter. It will return results based on search links receiving clicks across bitly.</h2>
+
+<h2>It will also generate a QRcode so that if you would like to read any of the results on a mobile device, then all you have to do is scan the code. You must authorize yourself by clicking on the link below to use the search feature.</h2>
+
+<a href="https://bitly.com/oauth/authorize?client_id=6f4c7cb2694215156619c765d892ca62f56ea25b&redirect_uri=http://on-the-go.herokuapp.com/oauth">Click here to authorize using your bitly account</a>
 
 <div><br><%= link_to "Signout", destroy_user_session_path, { :method => :delete} %></br></div>
