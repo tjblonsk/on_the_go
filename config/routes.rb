@@ -1,8 +1,8 @@
 OnTheGo::Application.routes.draw do
   devise_for :users
-  root "searches#new"
+  root "welcome#index"
   resources :searches, :histories
-  get '/create', to: 'searches#new'
+  get '/oauth', to: 'searches#new'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
